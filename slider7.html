@@ -1,0 +1,89 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Slider with Answers</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+    .slider {
+      width: 80%;
+      margin: 20px auto;
+      overflow: hidden;
+    }
+    .slides {
+      display: flex;
+      transition: transform 0.5s ease;
+    }
+    .slide {
+      width: 100%;
+    }
+    .slide-content {
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      background-color: #f9f9f9;
+    }
+    .sources {
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="slider">
+  <div class="slides">
+    <div class="slide">
+      <div class="slide-content">
+        <h2>How does JavaScript on the webpage affect the page load speed and performance?</h2>
+        <p>JavaScript can affect page load speed and performance in several ways. When JavaScript is loaded and executed, it can block the rendering of the page, leading to slower load times. Additionally, poorly optimized JavaScript code can cause high CPU usage and slow down the performance of the webpage.</p>
+      </div>
+    </div>
+    <div class="slide">
+      <div class="slide-content">
+        <h2>What is "minification" of the script? Why is it useful to minify your scripts?</h2>
+        <p>Minification of the script refers to the process of removing unnecessary characters from the code such as whitespace, comments, and newlines, in order to reduce the file size. Minification helps to improve the load time of web pages by reducing the amount of data that needs to be transferred over the network.</p>
+      </div>
+    </div>
+    <div class="slide">
+      <div class="slide-content">
+        <h2>What is a JS Web Worker and when do we need it?</h2>
+        <p>A JavaScript Web Worker is a mechanism that allows JavaScript code to run in the background, separate from the main execution thread of the webpage. Web Workers are useful for performing computationally intensive tasks without blocking the UI, such as data processing, image manipulation, or other tasks that would otherwise cause the webpage to become unresponsive.</p>
+      </div>
+    </div>
+    <div class="slide">
+      <div class="slide-content">
+        <h2>Explain "repaint" and "reflow" of the webpage</h2>
+        <p>Repaint and reflow are two processes that occur when changes are made to the layout or style of a webpage.</p>
+        <p>Reflow, also known as layout, is the process of recalculating the positions and sizes of all elements on the page. It happens when there are changes to the structure of the DOM, or when CSS styles affecting layout are modified. Reflow is a computationally expensive process and can significantly affect the performance of a webpage.</p>
+        <p>Repaint, on the other hand, is the process of updating the pixels on the screen to reflect changes in appearance, such as color or visibility. Repaint occurs after reflow and involves applying styles and drawing elements to the screen. While repaint is less resource-intensive than reflow, it can still impact the performance of the webpage, especially if there are many elements that need to be repainted.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  // JavaScript for slider functionality
+  const slides = document.querySelectorAll('.slide');
+  const slider = document.querySelector('.slides');
+
+  let currentIndex = 0;
+
+  function goToSlide(index) {
+    slider.style.transform = `translateX(-${index * 100}%)`;
+  }
+
+  function nextSlide() {
+    currentIndex = (currentIndex + 1) % slides.length;
+    goToSlide(currentIndex);
+  }
+
+  setInterval(nextSlide, 5000); // Auto-advance every 5 seconds
+</script>
+
+</body>
+</html>
+
